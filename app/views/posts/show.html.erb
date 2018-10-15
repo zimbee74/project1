@@ -1,0 +1,18 @@
+<h2><%= @post.name %></h2>
+
+Created by <%= @post.user.name %>
+<br>
+<% if @post.image.present? %>
+  <%= image_tag @post.image, class: 'postCover' %>
+<% end %>
+<br>
+
+<!--
+   Only show the edit link if the user who created the current
+   post *is* the currently logged-in user, i.e.:
+   1. is someone logged in?
+   2. is that someone the same person as the owner of the post?
+ -->
+<% if @current_user.present? && @post.user == @current_user %>
+  <%= link_to 'Edit Post', edit_post_path(@post)  %>
+<% end %>
