@@ -1,10 +1,30 @@
-<h2>All Mixtapes</h2>
+<h2>All Posts</h2>
+<div class="container-fluid">
+  <div class="row">
 
+    <div class="col-4">
+      1st of three columns
+    </div><!-- end  of 1st col -->
+
+    <div class="col-4">
+      2nd of three columns
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%= link_to post.name, post_path(mixtape.id) %>
+      <%= link_to post.heading, post_path(post.id) %>
       (<%= post.user.name %>)
     </li>
   <% end %>
 </ul>
+    </div><!-- end  of 2nd col -->
+    <div class="col-4">
+     3rd of three columns
+
+     <ul>
+     <% @users.each do |user| %>
+        <li>
+          <%= link_to user.name, user_path(user.id) %>
+        </li>
+     <% end %>
+     </ul>
+    </div>

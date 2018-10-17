@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -14,18 +15,27 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="navbar navbar-expand-lx navbar-light bg-dark">
+
       <% if @current_user.present? %>
         Welcome, <%= @current_user.name %>
-
+        |
         <%= link_to 'Logout', login_path, method: 'delete' %>
 
       <% else %>
+        |
         <%= link_to 'Login', login_path %>
         |
         <%= link_to 'Sign up', new_user_path %>
+
       <% end %>
-  | Create Post | Read Posts | Update Posts | Delete Posts |
+        |
+      <%= link_to 'Create Post', new_post_path %>
+       |
+      <%= link_to 'Post Feed', posts_path %>
+      |
+      <%= link_to 'All Users', users_path %>
+
     </nav>
     <hr>
     <%= yield %>

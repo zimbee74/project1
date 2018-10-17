@@ -43,6 +43,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @users = User.all
   end
 
   def show
@@ -83,8 +84,8 @@ class PostsController < ApplicationController
   end
 
   private
-  def mixtape_params
-    params.require(:post).permit(:name, :image)
+  def post_params
+    params.require(:post).permit(:name, :image, :heading, :content)
   end
 
 end # class

@@ -1,18 +1,60 @@
-<h2><%= @post.name %></h2>
+<div class="container-fluid">
+  <div class="row">
 
-Created by <%= @post.user.name %>
-<br>
-<% if @post.image.present? %>
-  <%= image_tag @post.image, class: 'postCover' %>
-<% end %>
-<br>
+    <div class="col-4">
+      1st of three columns
+    </div><!-- end of 1st col -->
 
+    <br>
+
+    <div class="col-4">
+
+      2nd of three columns
+      <h5><%= @post.id %></h5>
+
+      <% if @post.image.present? %>
+        <picture = class="img-fluid" max-width: 100%;>
+          <%= image_tag @post.image, class: 'userpicpost' %>
+        </picture>
+      <% end %>
+
+      Posted by <%= @post.user.name %>
+
+      <% if @post.heading.present? %>
+        <div class="heading">
+          <%= @post.heading %>
+        </div>
+      <% end %>
+
+      <% if @post.content.present? %>
+        <div class="content">
+          <%= @post.content %>
+        </div>
+      <% end %>
+
+<br>
 <!--
    Only show the edit link if the user who created the current
    post *is* the currently logged-in user, i.e.:
    1. is someone logged in?
    2. is that someone the same person as the owner of the post?
  -->
-<% if @current_user.present? && @post.user == @current_user %>
-  <%= link_to 'Edit Post', edit_post_path(@post)  %>
-<% end %>
+  <% if @current_user.present? && @post.user == @current_user %>
+    <%= link_to 'Edit Post', edit_post_path(@post)  %>
+  |
+    <%= link_to 'Delete Posts', post_path(@post), method: 'delete' %>
+  <% end %>
+
+
+  <h3>Comments</h3>
+  <hr>
+  <% @post.comments.each do |comment| %>
+    <%= comment.content %>
+  <% end %>
+
+</div><!-- end of 2nd col -->
+      <div class="col-4">
+       3rd of three columns
+      </div>
+    </div>
+  </div>

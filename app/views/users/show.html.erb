@@ -1,2 +1,21 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-4">
+      1st of three columns
+    </div><!-- end of 1st col -->
+
+    <div class="col-4">
+    2nd of three columns
+<%= @user.name %>
+
+<!-- Show list of all posts made by this user, with links to the show page for each post -->
+<%= @user.posts %>
+</div><!-- end of 2nd col -->
+
+    <div class="col-4">
+      3rd of three columns
+    </div><!-- end of 3rd col -->
