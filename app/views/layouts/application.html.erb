@@ -16,26 +16,26 @@
 
   <body>
     <nav class="navbar navbar-expand-lx navbar-light bg-dark">
-
+<span class="topbarleft">
       <% if @current_user.present? %>
         Welcome, <%= @current_user.name %>
         |
         <%= link_to 'Logout', login_path, method: 'delete' %>
-
       <% else %>
         |
         <%= link_to 'Login', login_path %>
         |
         <%= link_to 'Sign up', new_user_path %>
-
       <% end %>
+</span>
+<span class="topbarright">
         |
       <%= link_to 'Create Post', new_post_path %>
        |
       <%= link_to 'Post Feed', posts_path %>
       |
       <%= link_to 'All Users', users_path %>
-
+</span>
     </nav>
     <hr>
     <%= yield %>

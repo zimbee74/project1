@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-4">
-      1st of three columns
+      1st of three columns TEST SHOW
     </div><!-- end of 1st col -->
 
     <br>
@@ -21,8 +21,10 @@
       Posted by <%= @post.user.name %>
 
       <% if @post.heading.present? %>
+        <%= link_to 'like', add_post_path, class: "like" %>
         <div class="heading">
           <%= @post.heading %>
+
         </div>
       <% end %>
 
@@ -55,6 +57,13 @@
 </div><!-- end of 2nd col -->
       <div class="col-4">
        3rd of three columns
+       <ul>
+       <% @users.each do |user| %>
+          <li>
+            <%= link_to user.name, user_path(user.id) %>
+          </li>
+       <% end %>
+       </ul>
       </div>
     </div>
   </div>

@@ -6,16 +6,49 @@
 
     <div class="col-4">
       1st of three columns
+
+      <!-- If the logged-in user is looking at their own profile -->
+      <% if @current_user.present? && @user == @current_user %>
+        <%= link_to 'Edit User', edit_user_path(@user)  %>
+      |
+        <%= link_to 'Delete User', user_path(@user), method: 'delete' %>
+      <% end %>
+
+      <br>
+
+  <%= cl_image_tag @user.image, class: 'profilepic' %>
+<br>
+<%= @user.name%>
+
+
+
+
     </div><!-- end of 1st col -->
 
     <div class="col-4">
     2nd of three columns
-<%= @user.name %>
 
 <!-- Show list of all posts made by this user, with links to the show page for each post -->
-<%= @user.posts %>
+<ul>
+<% @user.posts.each do |post| %>
+  <li>
+    <%= link_to post.heading, post_path(post.id) %>
+  </li>
+<% end %>
+</ul>
+
 </div><!-- end of 2nd col -->
 
     <div class="col-4">
       3rd of three columns
+
+      <ul>
+      <% @user.liked_posts.each do |post| %>
+        <li>
+          <%= link_to post.heading, post_path(post.id) %>
+        </li>
+      <% end %>
+      </ul>
+
+
     </div><!-- end of 3rd col -->

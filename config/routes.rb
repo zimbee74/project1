@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts
+  get "/posts/:id/add" => "posts#add_post", as: "add_post"
 
 end

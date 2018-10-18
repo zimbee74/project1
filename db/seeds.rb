@@ -10,9 +10,9 @@
 
 User.destroy_all
 
-u1 = User.create name: 'Christine', email: 'Christine@hotmail.com', password: 'chicken', image: 'http://placekitten.com/g/200/300', address:'34 Macrossan Road, Billoweala', dob:'1985/05/05'
-u2 = User.create name: 'Joy', email: 'joy@ga.co', password: 'chicken', image: 'http://placekitten.com/g/200/300', address:'40 Macrossan Road, Billoweala', dob:'1974/10/10'
-u3 = User.create name: 'Brad', email: 'brad@ga.co', password: 'chicken', image: 'http://placekitten.com/g/200/300', address:'50 Haven Road, Billoweala', dob:'1980/07/07'
+u1 = User.create name: 'Christine', email: 'Christine@hotmail.com', password: 'chicken', image: '/assets/user-7.png', address:'34 Macrossan Road, Billoweala', dob:'1985/05/05'
+u2 = User.create name: 'Joy', email: 'joy@ga.co', password: 'chicken', image: '/assets/user-0.png', address:'40 Macrossan Road, Billoweala', dob:'1974/10/10'
+u3 = User.create name: 'Brad', email: 'brad@ga.co', password: 'chicken', image: '/assets/user-4.png', address:'50 Haven Road, Billoweala', dob:'1980/07/07'
 
 puts "Created #{User.all.length} users."
 
@@ -27,7 +27,7 @@ p3 = Post.create date: '2018/12/12', heading: 'What do you think about this?', c
 
 p4 = Post.create date: '2018/03/11', heading: 'I think this needs to be discussed', content: 'Concept of the number one Cambrian explosion at the edge of forever dispassionate extraterrestrial observer corpus callosum white dwarf? Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur preserve and cherish that pale blue dot vel illum qui dolorem eum fugiat quo voluptas nulla pariatur star stuff harvesting star light nisi ut aliquid ex ea commodi consequatur Neque porro quisquam est? Network of wormholes Sea of Tranquility bits of moving fluff astonishment the only home weve ever known Jean-François Champollion and billions upon billions upon billions upon billions upon billions upon billions upon billions.', image: 'https://spaceholder.cc/300x500'
 
-p5 = Post.create date: '2018/03/06', heading: 'Across the centuries colonies intelligent beings Orions sword great turbulent clouds star stuff harvesting star light. Trillion of brilliant syntheses sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt preserve and cherish that pale blue dot concept of the number one Apollonius of Perga. With pretty stories for which theres little good evidence nisi ut aliquid ex ea commodi consequatur totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nisi ut aliquid ex ea commodi consequatur courage of our questions adipisci velit and billions upon billions upon billions upon billions upon billions upon billions upon billions.', image: 'https://spaceholder.cc/450x700'
+p5 = Post.create date: '2018/03/06', heading: 'What do you think about this?', content: 'Across the centuries colonies intelligent beings Orions sword great turbulent clouds star stuff harvesting star light. Trillion of brilliant syntheses sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt preserve and cherish that pale blue dot concept of the number one Apollonius of Perga. With pretty stories for which theres little good evidence nisi ut aliquid ex ea commodi consequatur totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nisi ut aliquid ex ea commodi consequatur courage of our questions adipisci velit and billions upon billions upon billions upon billions upon billions upon billions upon billions.', image: 'https://spaceholder.cc/450x700'
 
 puts "Created #{Post.all.length} posts."
 
@@ -35,6 +35,10 @@ puts "Created #{Post.all.length} posts."
 u1.posts << p1 << p2
 u2.posts << p3
 u3.posts << p4 << p5
+
+u1.liked_posts << p3 << p4
+u2.liked_posts << p1 << p2
+u3.liked_posts << p3 << p1
 
 #
 # Like.destroy_all

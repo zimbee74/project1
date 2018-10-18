@@ -18,8 +18,17 @@ class PostsController < ApplicationController
     # form (i.e., the user ID from the currently logged-in user):
     # First make a .new object, set the extra field, then .save
 
-    @post = Post.new( post_params )  # strong params
+    @post = Post.new( post_params )
+
+    if params[:file].present?
+      response = Cloudinary::Uploader.upload(params[:file])
+      @post.image = response["public_id"]
+    end
+      # strong params
     @post.user = @current_user
+# this could break
+
+# this could break
     # could also write: post.user_id = @current_user.id
     @post.save
     # OR: @post = @current_user.mixtapes.create mixtape_params
@@ -47,7 +56,19 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id]  # key comes from /mixtapes/:id
+    @post = Post.find params[:id]
+    @users = User.all # key comes from /mixtapes/:id
+  end
+
+  def add_post
+    @post = Post.find params[:id]
+
+    unless @current_user.liked_posts.include? @post
+      @current_user.liked_posts << @post
+    end
+
+    # raise "hell"
+    redirect_to post_path(@post)
   end
 
   def edit

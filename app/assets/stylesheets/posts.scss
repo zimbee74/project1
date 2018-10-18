@@ -1,0 +1,51 @@
+
+.row > div {
+  border: 2px solid red !important;
+}
+
+img.userpicpost {
+  max-width: 95%;
+}
+
+ul.friendslist {
+  list-style: none;
+}
+
+img.userpic {
+  max-width: 30%;
+  margin: 5px 20px 5px 0px;
+  // z-index: 1000 !important;
+
+}
+
+.usernametxt {
+  font: bold 30px arial, sans-serif;
+  color: white;
+  background-color: black;
+  padding: 10px 50px 10px 40px;
+  margin: 0px 0px 0px -50px;
+  z-index: -1!important;
+}
+
+.friends {
+  font: bold 30px arial, sans-serif;
+  margin: 0px 0px 0px 0px;
+}
+
+.topbarleft {
+  font: bold 20px arial, sans-serif;
+  color: white;
+   align-content: left;
+}
+
+.topbarright {
+  font: bold 20px arial, sans-serif;
+  color: white;
+   align-content: right;
+}
+
+.like {
+  font: bold 15px arial, sans-serif;
+  color: black;
+  text-align: right;
+}

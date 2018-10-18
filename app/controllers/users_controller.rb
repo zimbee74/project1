@@ -5,7 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create user_params   # strong params
+    user = User.new user_params   # strong params
+
+    # upload image if given
+    if params[:file].present?
+      response = Cloudinary::Uploader.upload(params[:file])
+      user.image = response["public_id"]
+    end
+
+    user.save  # persist the user object to the database
 
     if user.persisted?
       # Account created successfully!
@@ -24,10 +32,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+
   end
 
   def edit
-
+@user = User.find params[:id]
   end
 
 
@@ -41,6 +50,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find params[:id]  # key comes from /mixtapes/:id
+    user.destroy
+    redirect_to users_path
   end
 
   private
