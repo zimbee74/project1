@@ -1,15 +1,12 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-4">
-      1st of three columns TEST SHOW
+    <div class="col-1">
     </div><!-- end of 1st col -->
 
     <br>
 
-    <div class="col-4">
-
-      2nd of three columns
+    <div class="col-7">
       <h5><%= @post.id %></h5>
 
       <% if @post.image.present? %>
@@ -56,11 +53,11 @@
 
 </div><!-- end of 2nd col -->
       <div class="col-4">
-       3rd of three columns
-       <ul>
+       <ul class="friendslist">
        <% @users.each do |user| %>
-          <li>
-            <%= link_to user.name, user_path(user.id) %>
+          <li><div><%= cl_image_tag user.image, class: 'userpic' %></div>
+          <span><%= link_to user.name, user_path(user.id), class: 'usernametxt'%></span>
+          <hr>
           </li>
        <% end %>
        </ul>

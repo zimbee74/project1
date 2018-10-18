@@ -1,13 +1,14 @@
 
 .row > div {
-  border: 2px solid red !important;
 }
 
 img.userpicpost {
-  max-width: 95%;
+  max-width: 50%;
+
+  float: left;
 }
 
-ul.friendslist {
+ul {
   list-style: none;
 }
 
@@ -23,7 +24,7 @@ img.userpic {
   color: white;
   background-color: black;
   padding: 10px 50px 10px 40px;
-  margin: 0px 0px 0px -50px;
+  margin: 0px 0px -50px -50px;
   z-index: -1!important;
 }
 
@@ -48,4 +49,19 @@ img.userpic {
   font: bold 15px arial, sans-serif;
   color: black;
   text-align: right;
+}
+
+.post-text-sample {
+  align: right;
+  max-width: 50%;
+}
+
+.post-text-sample > span {
+  font: bold 20px arial, sans-serif;
+  overflow: hidden;
+}
+
+.main-posts-list {
+  max-width: 98% !important;
+  display: table;
 }
