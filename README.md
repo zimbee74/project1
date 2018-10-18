@@ -1,24 +1,21 @@
 # README
+PROJECT DESCRIPTION
+'goal of the web app'
+Provide an international closed social networking platform, with the goal of: empowering and connecting the workers who serve and assist first nation (indigenous) communities in
+Australia, Canada and the United States.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Working Features (currently online):
+Users can join and login / delete an account.
+Users can like/favourite a post which will then be stored (in a favourites section)
+Posts can be created and include:
+  : Images
+  : Body text paragraphs
+  : Heading
+  : Users name
+  : Comments which can be liked.
 
-Things you may want to cover:
+There is a Posts Feed / and each post has an individual page.
 
-* Ruby version
+There is a Users Management Page
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Create / Read / Update / Delete / are working . . . . mostly.

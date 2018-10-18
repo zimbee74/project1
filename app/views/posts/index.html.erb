@@ -13,9 +13,9 @@
       <%= cl_image_tag post.image, class: 'userpicpost' %>
       </div>
       <div class='post-text-sample'>
-        <div>
+        <span>
       <%= link_to post.heading, post_path(post.id) %>
-    </div>
+        </span>
       <hr>
       <%= post.content %>
       (<%= post.user.name %>)
